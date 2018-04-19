@@ -12,7 +12,6 @@ import os
 
 #Global_Constants
 ipclass = ip[0:2]
-print (ipclass)
 
 def main():
   if ipclass == '10':
@@ -76,47 +75,59 @@ def menu_outside():
     menu_outside()
 
 def testfw_in():
-    hostname = str(input('Enter IP of FW:'))
-    respone = os.system("ping -c 1" + hostname)
+    hostname = str(input('Enter IP of Firewall:'))
+    respone = os.system("ping " + hostname + " -c 1")
+    print(respone)
     if respone == 0:
         print(hostname, 'Is up')
     else:
         print(hostname, 'Is down')
 
+
 def testweb_in():
-    hostname = str(input('Enter IP of webserver:'))
-    respone = os.system("ping -c 1" + hostname)
+    hostname = str(input('Enter IP of Webstation:'))
+    respone = os.system("ping " + hostname + " -c 1")
+    print(respone)
     if respone == 0:
         print(hostname, 'Is up')
     else:
         print(hostname, 'Is down')
+
 
 def testws_in():
     hostname = str(input('Enter IP of Workstation:'))
-    respone = os.system("ping -c 1" + hostname)
+    respone = os.system("ping " + hostname + " -c 1")
+    print(respone)
     if respone == 0:
         print(hostname, 'Is up')
     else:
         print(hostname, 'Is down')
 
+
 def testfw_out():
-    hostname = str(input('Enter IP of FW:'))
-    response = os.system("ping -c 1 " + hostname)
+    hostname = str(input('Enter IP of Firewall:'))
+    respone = os.system("ping " + hostname + " -c 1")
+    print(respone)
     if respone == 0:
         print(hostname, 'Is up')
     else:
         print(hostname, 'Is down')
+
+
 def testweb_out():
-    hostname = str(input('Enter IP of webserver:'))
-    respone = os.system("ping -c 1" + hostname)
+    hostname = str(input('Enter IP of Webserver:'))
+    respone = os.system("ping " + hostname + " -c 1")
+    print(respone)
     if respone == 0:
         print(hostname, 'Is up')
     else:
         print(hostname, 'Is down')
+
 
 def testws_out():
     hostname = str(input('Enter IP of Workstation:'))
-    respone = os.system("ping -c 1" + hostname)
+    respone = os.system("ping " + hostname + " -c 1")
+    print(respone)
     if respone == 0:
         print(hostname, 'Is up')
     else:
