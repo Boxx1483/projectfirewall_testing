@@ -1,37 +1,38 @@
-import socket, subprocess, socketserver, nmap,os
+import socket, subprocess, socketserver, nmap, os
+
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 s.connect(("8.8.8.8", 80))
 ip = s.getsockname()[0]
 s.close()
-#This script will test our network
+# This script will test our network
 
 
 
-#Global_Constants
+# Global_Constants
 ipclass = ip[0:2]
 
+
 def main():
-  if ipclass == '10':
-    menu_inside()
+    if ipclass == '10':
+        menu_inside()
 
-  elif ipclass == '19':
-    menu_outside()
+    elif ipclass == '19':
+        menu_outside()
 
-  else:
-      print('You are not connected correctly')
-      exit()
-
+    else:
+        print('You are not connected correctly')
+        exit()
 
 
 def menu_inside():
     os.system("clear")
     print('Inside Menu')
-    print('-'*25)
+    print('-' * 25)
     print('1. Test FW')
     print('2. Test Webserver')
     print('3. Test Work Station')
     print('4. To exit program')
-    print('-'*25)
+    print('-' * 25)
     user_inside = str(input('Enter your choice:'))
     if user_inside == '1':
         testfw_in()
@@ -47,6 +48,7 @@ def menu_inside():
     else:
         print('kys')
         menu_inside()
+
 
 def menu_outside():
     os.system("clear")
@@ -73,6 +75,7 @@ def menu_outside():
         print('kys')
     menu_outside()
 
+
 def testfw_in():
     nm = nmap.PortScanner()
     nm.scan('192.168.1.1', '1-512')
@@ -97,6 +100,7 @@ def testfw_in():
         print(hostname, 'Is down')
     input()
 
+
 def testweb_in():
     hostname = str(input('Enter IP of Webstation:'))
     respone = os.system("ping " + hostname + " -c 1 > /dev/null 2>&1")
@@ -106,6 +110,7 @@ def testweb_in():
         print(hostname, 'Is down')
     input()
 
+
 def testws_in():
     hostname = str(input('Enter IP of Workstation:'))
     respone = os.system("ping " + hostname + " -c 1 > /dev/null 2>&1")
@@ -114,6 +119,7 @@ def testws_in():
     else:
         print(hostname, 'Is down')
     input()
+
 
 def testfw_out():
     nm = nmap.PortScanner()
@@ -139,10 +145,15 @@ def testfw_out():
         print(hostname, 'Is down')
     input()
 
+
+def ping_check(host_or_ip):
+    response = os.system("ping " + host_or_ip + " -c 1 > /dev/null 2>&1")
+    return response == 0
+
+
 def testweb_out():
     hostname = str(input('Enter IP of Webserver:'))
-    respone = os.system("ping " + hostname + " -c 1 > /dev/null 2>&1")
-    if respone == 0:
+    if ping_check(hostname):
         print(hostname, 'Is up')
     else:
         print(hostname, 'Is down')
@@ -158,11 +169,5 @@ def testws_out():
         print(hostname, 'Is down')
     input()
 
+
 main()
-
-
-
-
-
-
-
