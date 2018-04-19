@@ -1,14 +1,11 @@
-import socket
+import socket, subprocess, socketserver, nmap,os
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 s.connect(("8.8.8.8", 80))
 ip = s.getsockname()[0]
 s.close()
 #This script will test our network
 
-#imports
-import subprocess
-import socketserver
-import os
+
 
 #Global_Constants
 ipclass = ip[0:2]
@@ -77,6 +74,18 @@ def menu_outside():
     menu_outside()
 
 def testfw_in():
+    nm = nmap.PortScanner()
+    for host in nm.allhosts():
+        print('-' * 25)
+        print('Host : %s (%s)' % (host, nm[host].hostname()))
+        print('State : %s' % nm[host].state())
+    for proto in nm[host].all_protocols():
+        print('-' * 10)
+        print('Protocol : %s' % proto)
+        lport = nm[host][proto].keys()
+        lport.sort()
+    for port in lport:
+        print('port : %s\tstate : %s' % (port, nm[host][proto][port]['state']))
     hostname = str(input('Enter IP of Firewall:'))
     respone = os.system("ping " + hostname + " -c 1 > /dev/null 2>&1")
     if respone == 0:
@@ -102,8 +111,20 @@ def testws_in():
     else:
         print(hostname, 'Is down')
     input()
-    
+
 def testfw_out():
+    nm = nmap.PortScanner()
+    for host in nm.allhosts():
+        print('-' * 25)
+        print('Host : %s (%s)' % (host, nm[host].hostname()))
+        print('State : %s' % nm[host].state())
+    for proto in nm[host].all_protocols():
+        print('-' * 10)
+        print('Protocol : %s' % proto)
+        lport = nm[host][proto].keys()
+        lport.sort()
+    for port in lport:
+        print('port : %s\tstate : %s' % (port, nm[host][proto][port]['state']))
     hostname = str(input('Enter IP of Firewall:'))
     respone = os.system("ping " + hostname + " -c 1 > /dev/null 2>&1")
     if respone == 0:
@@ -111,7 +132,7 @@ def testfw_out():
     else:
         print(hostname, 'Is down')
     input()
-    
+
 def testweb_out():
     hostname = str(input('Enter IP of Webserver:'))
     respone = os.system("ping " + hostname + " -c 1 > /dev/null 2>&1")
