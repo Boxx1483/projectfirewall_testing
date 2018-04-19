@@ -77,7 +77,7 @@ def menu_outside():
 def testfw_in():
     print('')
     try:
-        subprocess.call(["ping", "10.140.66.64","-c","1"])
+        ping = subprocess.call(["ping", "10.140.66.64","-c","1"])
     except Exception as error:
         print(error)
 
