@@ -27,6 +27,7 @@ def main():
 
 
 def menu_inside():
+    os.system("clear")
     print('Inside Menu')
     print('-'*25)
     print('1. Test FW')
@@ -51,6 +52,7 @@ def menu_inside():
         menu_inside()
 
 def menu_outside():
+    os.system("clear")
     print('Outside Menu')
     print('-' * 25)
     print('1. Test FW')
@@ -81,7 +83,7 @@ def testfw_in():
         print(hostname, 'Is up')
     else:
         print(hostname, 'Is down')
-
+    input()
 
 def testweb_in():
     hostname = str(input('Enter IP of Webstation:'))
@@ -90,7 +92,7 @@ def testweb_in():
         print(hostname, 'Is up')
     else:
         print(hostname, 'Is down')
-
+    input()
 
 def testws_in():
     hostname = str(input('Enter IP of Workstation:'))
@@ -99,8 +101,8 @@ def testws_in():
         print(hostname, 'Is up')
     else:
         print(hostname, 'Is down')
-
-
+    input()
+    
 def testfw_out():
     hostname = str(input('Enter IP of Firewall:'))
     respone = os.system("ping " + hostname + " -c 1 > /dev/null 2>&1")
@@ -108,8 +110,8 @@ def testfw_out():
         print(hostname, 'Is up')
     else:
         print(hostname, 'Is down')
-
-
+    input()
+    
 def testweb_out():
     hostname = str(input('Enter IP of Webserver:'))
     respone = os.system("ping " + hostname + " -c 1 > /dev/null 2>&1")
@@ -117,6 +119,7 @@ def testweb_out():
         print(hostname, 'Is up')
     else:
         print(hostname, 'Is down')
+    input()
 
 
 def testws_out():
@@ -126,7 +129,7 @@ def testws_out():
         print(hostname, 'Is up')
     else:
         print(hostname, 'Is down')
-
+    input()
 
 main()
 
