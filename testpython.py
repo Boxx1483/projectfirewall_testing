@@ -76,8 +76,7 @@ def menu_outside():
 
 def testfw_in():
     hostname = str(input('Enter IP of Firewall:'))
-    respone = os.system("ping " + hostname + " -c 1")
-    print(respone)
+    respone = os.system("ping " + hostname + " -c 1 > /dev/null 2>&1")
     if respone == 0:
         print(hostname, 'Is up')
     else:
@@ -86,8 +85,7 @@ def testfw_in():
 
 def testweb_in():
     hostname = str(input('Enter IP of Webstation:'))
-    respone = os.system("ping " + hostname + " -c 1")
-    print(respone)
+    respone = os.system("ping " + hostname + " -c 1 > /dev/null 2>&1")
     if respone == 0:
         print(hostname, 'Is up')
     else:
@@ -96,8 +94,7 @@ def testweb_in():
 
 def testws_in():
     hostname = str(input('Enter IP of Workstation:'))
-    respone = os.system("ping " + hostname + " -c 1")
-    print(respone)
+    respone = os.system("ping " + hostname + " -c 1 > /dev/null 2>&1")
     if respone == 0:
         print(hostname, 'Is up')
     else:
@@ -106,9 +103,8 @@ def testws_in():
 
 def testfw_out():
     hostname = str(input('Enter IP of Firewall:'))
-    respone = os.system("ping " + hostname + " -c 1")
-    print(respone)
-    if respone == 0:
+    respone = os.system("ping " + hostname + " -c 1 > /dev/null 2>&1")
+     if respone == 0:
         print(hostname, 'Is up')
     else:
         print(hostname, 'Is down')
@@ -116,8 +112,7 @@ def testfw_out():
 
 def testweb_out():
     hostname = str(input('Enter IP of Webserver:'))
-    respone = os.system("ping " + hostname + " -c 1")
-    print(respone)
+    respone = os.system("ping " + hostname + " -c 1 > /dev/null 2>&1")
     if respone == 0:
         print(hostname, 'Is up')
     else:
@@ -126,8 +121,7 @@ def testweb_out():
 
 def testws_out():
     hostname = str(input('Enter IP of Workstation:'))
-    respone = os.system("ping " + hostname + " -c 1")
-    print(respone)
+    respone = os.system("ping " + hostname + " -c 1 > /dev/null 2>&1")
     if respone == 0:
         print(hostname, 'Is up')
     else:
