@@ -75,17 +75,17 @@ def menu_outside():
 
 def testfw_in():
     nm = nmap.PortScanner()
-    for host in nm.allhosts():
+    for host in nm.all_hosts():
         print('-' * 25)
         print('Host : %s (%s)' % (host, nm[host].hostname()))
         print('State : %s' % nm[host].state())
-    for proto in nm[host].all_protocols():
-        print('-' * 10)
-        print('Protocol : %s' % proto)
-        lport = nm[host][proto].keys()
-        lport.sort()
-    for port in lport:
-        print('port : %s\tstate : %s' % (port, nm[host][proto][port]['state']))
+        for proto in nm[host].all_protocols():
+            print('-' * 10)
+            print('Protocol : %s' % proto)
+            lport = nm[host][proto].keys()
+            lport.sort()
+            for port in lport:
+                print('port : %s\tstate : %s' % (port, nm[host][proto][port]['state']))
     hostname = str(input('Enter IP of Firewall:'))
     respone = os.system("ping " + hostname + " -c 1 > /dev/null 2>&1")
     if respone == 0:
@@ -114,17 +114,17 @@ def testws_in():
 
 def testfw_out():
     nm = nmap.PortScanner()
-    for host in nm.allhosts():
+    for host in nm.all_hosts():
         print('-' * 25)
         print('Host : %s (%s)' % (host, nm[host].hostname()))
         print('State : %s' % nm[host].state())
-    for proto in nm[host].all_protocols():
-        print('-' * 10)
-        print('Protocol : %s' % proto)
-        lport = nm[host][proto].keys()
-        lport.sort()
-    for port in lport:
-        print('port : %s\tstate : %s' % (port, nm[host][proto][port]['state']))
+        for proto in nm[host].all_protocols():
+            print('-' * 10)
+            print('Protocol : %s' % proto)
+            lport = nm[host][proto].keys()
+            lport.sort()
+            for port in lport:
+                print('port : %s\tstate : %s' % (port, nm[host][proto][port]['state']))
     hostname = str(input('Enter IP of Firewall:'))
     respone = os.system("ping " + hostname + " -c 1 > /dev/null 2>&1")
     if respone == 0:
@@ -153,6 +153,10 @@ def testws_out():
     input()
 
 main()
+
+
+
+
 
 
 
