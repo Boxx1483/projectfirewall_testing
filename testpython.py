@@ -104,7 +104,7 @@ def testws_in():
 def testfw_out():
     hostname = str(input('Enter IP of Firewall:'))
     respone = os.system("ping " + hostname + " -c 1 > /dev/null 2>&1")
-     if respone == 0:
+    if respone == 0:
         print(hostname, 'Is up')
     else:
         print(hostname, 'Is down')
