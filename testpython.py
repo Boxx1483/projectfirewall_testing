@@ -1,7 +1,8 @@
 #This script will test our network
+import socket
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 s.connect(("8.8.8.8", 80))
-print(s.getsockname()[0])
+ip = s.getsockname()[0]
 s.close()
 #This script will test our network
 
@@ -11,14 +12,14 @@ import socket
 import socketserver
 
 #Global_Constants
-ipclass = socket.
+ipclass = ip[0:2]
 
 
 def main():
-  if ipclass is True:
+  if ipclass == 10:
     menu_inside()
 
-  elif ipclass is False:
+  elif ipclass == 19:
     menu_outside()
 
   else:
