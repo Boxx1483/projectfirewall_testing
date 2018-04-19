@@ -101,7 +101,7 @@ def testws_in():
 
 def testfw_out():
     hostname = str(input('Enter IP of FW:'))
-    response = os.system("ping -c 1 -w 2 " + hostname + " > /dev/null 2>&1")
+    response = os.system("ping -c 1 " + hostname)
     if respone == 0:
         print(hostname, 'Is up')
     else:
