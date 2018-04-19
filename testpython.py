@@ -1,4 +1,3 @@
-#This script will test our network
 import socket
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 s.connect(("8.8.8.8", 80))
@@ -8,18 +7,17 @@ s.close()
 
 #imports
 import subprocess
-import socket
 import socketserver
 
 #Global_Constants
 ipclass = ip[0:2]
-
+print (ipclass)
 
 def main():
-  if ipclass == 10:
+  if ipclass == '10':
     menu_inside()
 
-  elif ipclass == 19:
+  elif ipclass == '19':
     menu_outside()
 
   else:
@@ -77,22 +75,32 @@ def menu_outside():
     menu_outside()
 
 def testfw_in():
+    print('')
+    try:
+        subprocess.call(["ping", "10.140.66.64","-c","1"])
+    except Exception as error:
+        print(error)
+
 
 def testweb_in():
-    
+    print('')
+
 def testws_in():
+    print('')
 
 def testfw_out():
+    try:
+        subprocess.call(["ping", "192.168.1.10","-c","1"])
+    except Exception as error:
+        print(error)
 
 def testweb_out():
-
+    print('')
 def testws_out():
-
+    print('')
 
 
 main()
-
-
 
 
 
