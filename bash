@@ -1,8 +1,11 @@
 apt-get update -y
 apt-get install python3 -y
+apt-get install nmap -y
 apt-get install git -y
-apt-get install pip3 -y
-pip install python_nmap
-git clone (https://github.com/Boxx1483/projectfirewall_testing.git)
+easy_install pip
+pip3 install --target=/usr/local/lib/python3.5/dist-packages python-nmap
+git clone https://github.com/Boxx1483/projectfirewall_testing.git
+cd projectfirewall_testing
 chmod a+x testpython.py
 python3 testpython.py
+
