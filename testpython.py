@@ -75,12 +75,12 @@ def menu_outside():
 
 def testfw_in():
     nm = nmap.PortScanner()
-    nm.scan('127.0.0.1', '1-5012')
+    nm.scan('192.168.1.1', '1-512')
     print(nm.all_hosts())
 
     for host in nm.all_hosts():
         print('-' * 25)
-    	print('Host : %s (%s)' % (host, nm[host].hostname()))
+        print('Host : %s (%s)' % (host, nm[host].hostname()))
         print('State : %s' % nm[host].state())
         for proto in nm[host].all_protocols():
             print('-' * 10)
@@ -117,6 +117,9 @@ def testws_in():
 
 def testfw_out():
     nm = nmap.PortScanner()
+    nm.scan('192.168.1.1', '1-512')
+    print(nm.all_hosts())
+
     for host in nm.all_hosts():
         print('-' * 25)
         print('Host : %s (%s)' % (host, nm[host].hostname()))
