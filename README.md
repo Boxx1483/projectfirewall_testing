@@ -5,6 +5,8 @@ Scripts for testing with python
 Guide to repository
 =====================
 # __Works only for linux__
+# __Needs access to a DNS server__
+# __Along with internet access__
 
 
 * 1. Apt-get install git
