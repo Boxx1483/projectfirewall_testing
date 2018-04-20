@@ -28,6 +28,9 @@ def read_config(filename='config.yaml'):
                     conf = yaml.load(f)
                 return conf
 
+if __name__ == "__main__"
+	conf = read_config()
+	print(conf['IP'])
 
 def print_menu():
     print('-' * 25)
@@ -179,11 +182,6 @@ def testws_out():
     else:
         print(hostname, 'Is down')
     input()
-
-
-if __name__ == "__main()__":
-    conf = read_config()
-    print(conf['IP'])
 
 
 main()
