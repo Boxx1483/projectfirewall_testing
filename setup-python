@@ -5,6 +5,6 @@ easy_install pip
 apt-get install python3-pip -y
 pip3 install --target=/usr/local/lib/python3.5/dist-packages python-nmap
 pip3 install --target=/usr/local/lib/python3.5/dist-packages pyyaml
-chmod a+x testpy_v2.py
-python3 testpy_v2.py
+chmod a+x testpyv2.py
+python3 testpyv2.py
 
