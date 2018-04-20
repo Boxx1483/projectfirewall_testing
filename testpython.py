@@ -77,8 +77,9 @@ def menu_outside():
 
 
 def testfw_in():
+    hostname = str(input('Enter IP of Firewall:'))
     nm = nmap.PortScanner()
-    nm.scan('192.168.1.1', '1-512')
+    nm.scan(hostname, '1-512')
     print(nm.all_hosts())
 
     for host in nm.all_hosts():
@@ -92,7 +93,6 @@ def testfw_in():
             lport.sort()
             for port in lport:
                 print('port : %s\tstate : %s' % (port, nm[host][proto][port]['state']))
-    hostname = str(input('Enter IP of Firewall:'))
     respone = os.system("ping " + hostname + " -c 1 > /dev/null 2>&1")
     if respone == 0:
         print(hostname, 'Is up')
@@ -122,8 +122,9 @@ def testws_in():
 
 
 def testfw_out():
+    hostname = str(input('Enter IP of Firewall:'))
     nm = nmap.PortScanner()
-    nm.scan('192.168.1.1', '1-512')
+    nm.scan(hostname, '1-512')
     print(nm.all_hosts())
 
     for host in nm.all_hosts():
@@ -137,7 +138,6 @@ def testfw_out():
             lport.sort()
             for port in lport:
                 print('port : %s\tstate : %s' % (port, nm[host][proto][port]['state']))
-    hostname = str(input('Enter IP of Firewall:'))
     respone = os.system("ping " + hostname + " -c 1 > /dev/null 2>&1")
     if respone == 0:
         print(hostname, 'Is up')
