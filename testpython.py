@@ -1,4 +1,4 @@
-import socket, subprocess, socketserver, nmap, os
+import socket, nmap, os
 
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 s.connect(("8.8.8.8", 80))
@@ -25,7 +25,6 @@ def main():
 
 
 def print_menu():
-    print('Inside Menu')
     print('-' * 25)
     print('1. Test FW')
     print('2. Test Webserver')
@@ -36,6 +35,7 @@ def print_menu():
 
 def menu_inside():
     #clearing screen when reloading menu
+    print('Inside Menu')
     os.system("clear")
 
     #calling function that prints the menu
@@ -64,6 +64,7 @@ def menu_outside():
     os.system("clear")
 
     #printing the menu options
+    print('Outside Menu')
     print_menu()
 
     #asking for user input menu option
@@ -85,9 +86,9 @@ def menu_outside():
 
 
 def testfw_in():
-    hostname = str(input('Enter IP of Firewall:'))
+    devicename = str(input('Enter IP of Firewall:'))
     nm = nmap.PortScanner()
-    nm.scan(hostname, '1-512')
+    nm.scan(devicename, '1-512')
     print(nm.all_hosts())
 
     for host in nm.all_hosts():
@@ -101,13 +102,11 @@ def testfw_in():
             lport.sort()
             for port in lport:
                 print('port : %s\tstate : %s' % (port, nm[host][proto][port]['state']))
-    hostname = str(input('Enter IP of Webserver:'))
-    if ping_check(hostname):
-        print(hostname, 'Is up')
+    if ping_check(devicename):
+        print(devicename, 'Is up')
     else:
-        print(hostname, 'Is down')
+        print(devicename, 'Is down')
     input()
-
 
 def testweb_in():
     hostname = str(input('Enter IP of Webserver:'))
@@ -128,9 +127,9 @@ def testws_in():
 
 
 def testfw_out():
-    hostname = str(input('Enter IP of Firewall:'))
+    devicename = str(input('Enter IP of Firewall:'))
     nm = nmap.PortScanner()
-    nm.scan(hostname, '1-512')
+    nm.scan(devicename, '1-512')
     print(nm.all_hosts())
 
     for host in nm.all_hosts():
@@ -144,10 +143,10 @@ def testfw_out():
             lport.sort()
             for port in lport:
                 print('port : %s\tstate : %s' % (port, nm[host][proto][port]['state']))
-    if ping_check(hostname):
-        print(hostname, 'Is up')
+    if ping_check(devicename):
+        print(devicename, 'Is up')
     else:
-        print(hostname, 'Is down')
+        print(devicename, 'Is down')
     input()
 
 
