@@ -23,7 +23,7 @@ def main():
         print('You are not connected correctly')
         exit()
 
-def read_config(filename='config.yaml')
+def read_config(filename='config.yaml'):
                 with open (filename) as f:
                     conf = pyyaml.read(f)
                 return conf
