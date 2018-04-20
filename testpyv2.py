@@ -25,7 +25,7 @@ def main():
 
 def read_config(filename='config.yaml'):
                 with open (filename) as f:
-                    conf = pyyaml.read(f)
+                    conf = yaml.read(f)
                 return conf
 
 
