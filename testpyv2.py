@@ -25,7 +25,7 @@ def main():
 
 def read_config(filename='config.yaml'):
                 with open (filename) as f:
-                    conf = yaml.read(f)
+                    conf = yaml.load(f)
                 return conf
 
 
@@ -181,8 +181,8 @@ def testws_out():
     input()
 
 
-if __soufhud__ == '__main__':
-    conf = read_conf()
+if __name__ == "__main()__":
+    conf = read_config()
     print(conf['IP'])
 
 
