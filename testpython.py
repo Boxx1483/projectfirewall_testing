@@ -24,8 +24,7 @@ def main():
         exit()
 
 
-def menu_inside():
-    os.system("clear")
+def print_menu():
     print('Inside Menu')
     print('-' * 25)
     print('1. Test FW')
@@ -33,6 +32,16 @@ def menu_inside():
     print('3. Test Work Station')
     print('4. To exit program')
     print('-' * 25)
+    return
+
+def menu_inside():
+    #clearing screen when reloading menu
+    os.system("clear")
+
+    #calling function that prints the menu
+    print_menu()
+
+    #asking for user input menu option
     user_inside = str(input('Enter your choice:'))
     if user_inside == '1':
         testfw_in()
@@ -51,14 +60,13 @@ def menu_inside():
 
 
 def menu_outside():
+    #clearing screen when reloading menu
     os.system("clear")
-    print('Outside Menu')
-    print('-' * 25)
-    print('1. Test FW')
-    print('2. Test Webserver')
-    print('3. Test Work Station')
-    print('4. To exit program')
-    print('-' * 25)
+
+    #printing the menu options
+    print_menu()
+
+    #asking for user input menu option
     user_inside = str(input('Enter your choice:'))
     if user_inside == '1':
         testfw_out()
@@ -93,8 +101,8 @@ def testfw_in():
             lport.sort()
             for port in lport:
                 print('port : %s\tstate : %s' % (port, nm[host][proto][port]['state']))
-    respone = os.system("ping " + hostname + " -c 1 > /dev/null 2>&1")
-    if respone == 0:
+    hostname = str(input('Enter IP of Webserver:'))
+    if ping_check(hostname):
         print(hostname, 'Is up')
     else:
         print(hostname, 'Is down')
@@ -102,9 +110,8 @@ def testfw_in():
 
 
 def testweb_in():
-    hostname = str(input('Enter IP of Webstation:'))
-    respone = os.system("ping " + hostname + " -c 1 > /dev/null 2>&1")
-    if respone == 0:
+    hostname = str(input('Enter IP of Webserver:'))
+    if ping_check(hostname):
         print(hostname, 'Is up')
     else:
         print(hostname, 'Is down')
@@ -112,9 +119,8 @@ def testweb_in():
 
 
 def testws_in():
-    hostname = str(input('Enter IP of Workstation:'))
-    respone = os.system("ping " + hostname + " -c 1 > /dev/null 2>&1")
-    if respone == 0:
+    hostname = str(input('Enter IP of Webserver:'))
+    if ping_check(hostname):
         print(hostname, 'Is up')
     else:
         print(hostname, 'Is down')
@@ -138,8 +144,7 @@ def testfw_out():
             lport.sort()
             for port in lport:
                 print('port : %s\tstate : %s' % (port, nm[host][proto][port]['state']))
-    respone = os.system("ping " + hostname + " -c 1 > /dev/null 2>&1")
-    if respone == 0:
+    if ping_check(hostname):
         print(hostname, 'Is up')
     else:
         print(hostname, 'Is down')
@@ -161,9 +166,8 @@ def testweb_out():
 
 
 def testws_out():
-    hostname = str(input('Enter IP of Workstation:'))
-    respone = os.system("ping " + hostname + " -c 1 > /dev/null 2>&1")
-    if respone == 0:
+    hostname = str(input('Enter IP of Webserver:'))
+    if ping_check(hostname):
         print(hostname, 'Is up')
     else:
         print(hostname, 'Is down')
