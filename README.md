@@ -11,7 +11,7 @@ Guide to repository
 
 #########################################################################################################################################
 
-* 1. Apt-get install git
+* 1. apt-get install git
 
 * 2. git clone https://github.com/Boxx1483/projectfirewall_testing.git
 
