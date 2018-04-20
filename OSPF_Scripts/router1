@@ -14,17 +14,17 @@ interface ens33
 interface ens34
 interface lo
 router ospf
- passive-interface ens33
+ passive-interface ens34
  network 192.168.1.0/24 area 0.0.0.0
  network 192.168.1.0/24 area 0.0.0.0
  network 192.168.2.0/24 area 0.0.0.0
 line vty
 EOF
 cat >> /etc/quagga/zebra.conf << EOF
-interface ens33
+interface ens34
  ip address 192.168.1.1/24
  ipv6 nd suppress-ra
-interface ens34
+interface ens33
  ip address 192.168.2.2/24
  ipv6 nd suppress-ra
 interface lo
