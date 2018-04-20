@@ -28,7 +28,7 @@ def read_config(filename='config.yaml'):
                     conf = yaml.load(f)
                 return conf
 
-if __name__ == "__main__"
+if __name__ == "__main__":
 	conf = read_config()
 	print(conf['IP'])
 
